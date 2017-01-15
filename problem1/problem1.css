@@ -1,0 +1,78 @@
+li{
+  line-height:1.5em;
+}
+
+.basket {
+  margin-top: 40px;
+}
+
+.addWrap, .message {
+  margin-bottom:10px;
+}
+
+input {
+  width : 100px;
+}
+
+.message {
+  font-size:0.9em;
+}
+
+/*body{
+	background-color: #f5e5e5;
+}
+h3{
+	
+	font-size: 1.5rem;
+}
+
+ol{
+	list-style-type: upper-latin;
+	//list-style-image: url(http://icons.iconarchive.com/icons/jonathan-rey/simpsons/256/Homer-Simpson-04-Happy-icon.png);
+	//list-style-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/809773-84.png);
+	
+	//margin:2rem 2rem 2rem 2rem;
+}
+
+li{
+  line-height:1.5em;
+  //padding: 200px 0px 0px 0px;
+  padding-top: 10rem;
+  content: 2rem 0px 0px 0px;
+  //margin: 2rem 2rem 2rem 2rem;
+}
+
+.basket {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.addWrap, .message {
+  margin-bottom:10px;
+}
+
+input {
+  width : 10%;
+  height: 2rem;
+  padding: 0rem 0rem 0rem 1rem;
+  margin: 0rem 0rem 0rem 3rem;
+}
+
+button {
+	height: 2rem;
+
+}
+
+.message {
+  font-size:0.9em;
+}
+
+.dolist{
+	background-color:#ffffff;
+	margin:10px;
+	margin-left: -4px;
+	border:solid#ac0000;
+	height: 2rem;
+	width:20%;
+	padding:0.5rem 0rem 0rem 0.5rem;
+}*/
