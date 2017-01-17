@@ -194,6 +194,20 @@ function changeRemovebox(){
 		,5000);
 }
 
+function doAddList(todoORnumber){
+	//같은 문자값이 있는지 확인
+ 	var chkValue = chkInputList(todoORnumber);
+ 	
+ 	if(chkValue !== -1){
+ 		changeAddbox();
+ 	}
+ 	else{
+	 	var newNode = newElement();
+	 	newNode.innerText = todoORnumber;
+	 	appendAddList(newNode);
+	}
+}
+
 function doSomething(actionType, todoORnumber)  {
 /*
  * actionType: add, remove, 나머지는 예외처리
@@ -220,20 +234,13 @@ function doSomething(actionType, todoORnumber)  {
 
  */
  var code = todoORnumber.charCodeAt();
+ //기존 : ADD actiontype 확인후 예외처리를 위한 분기문 진행
+ //      (이미 하였음, chkInputList)예외처리 항목을 분기문이 아닌 함수로 처리
+ //변경 : 문자열의 예외처리는 입력기능에서 처리
 
  //문자값 범위 확인 필요
  if(actionType === "add" && typeof todoORnumber === "string"){
- 	//같은 문자값이 있는지 확인
- 	var chkValue = chkInputList(todoORnumber);
- 	
- 	if(chkValue !== -1){
- 		changeAddbox();
- 	}
- 	else{
-	 	var newNode = newElement();
-	 	newNode.innerText = todoORnumber;
-	 	appendAddList(newNode);
-	}
+ 	doAddList(todoORnumber);	
  }
  else if(actionType === "remove" && code >= 48 && code <= 57){
  	if(chkRemoveValue(todoORnumber)){
