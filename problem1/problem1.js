@@ -77,6 +77,33 @@
  * 화면을 꾸미도록 한다. (목표 Trello의 화면)
    -- 포지션을 이용해서 처리를 하도록 한다.
  */
+
+ /* 함수 기능 정의
+ * actionType: add, remove, 나머지는 예외처리
+ * todoO Rnumber: add의 경우 string, remove의 경우 number. 나머지 예외처리
+ * 중복 및 값이 없는 경우의 이벤트 처리(3초, 빨간색 글씨 처리)
+
+ IF(ADD의 경우 처리)
+	todoORnumber === string
+	*같은 값이 있을시 예외처리
+	newElement 생성
+	newElement text값 입력
+	newElement AppendChild
+	문자열 길이 기준 소팅
+
+
+ ELSE IF(REMOVE의 경우 처리)
+ 	todoORnumber === number
+	todoORnumber < document.childElementcount 이면 삭제 진행
+	*같은 값이 있을시 예외처리
+
+	삭제 함수 호출(todoORnumber, children) / foreach 사용가능
+	정상 종료시 return true;
+	문자열 길이 기준 소팅
+
+ */
+
+
 countTime = 2;
 
 function newElement(){
@@ -208,31 +235,16 @@ function doAddList(todoORnumber){
 	}
 }
 
+function doRemoveList(todoORnumber){
+	if(chkRemoveValue(todoORnumber)){
+ 		deleteRemoveList(todoORnumber);
+ 	}
+ 	else{
+ 		changeRemovebox()
+ 	}
+}
+
 function doSomething(actionType, todoORnumber)  {
-/*
- * actionType: add, remove, 나머지는 예외처리
- * todoO Rnumber: add의 경우 string, remove의 경우 number. 나머지 예외처리
- * 중복 및 값이 없는 경우의 이벤트 처리(3초, 빨간색 글씨 처리)
-
- IF(ADD의 경우 처리)
-	todoORnumber === string
-	*같은 값이 있을시 예외처리
-	newElement 생성
-	newElement text값 입력
-	newElement AppendChild
-	문자열 길이 기준 소팅
-
-
- ELSE IF(REMOVE의 경우 처리)
- 	todoORnumber === number
-	todoORnumber < document.childElementcount 이면 삭제 진행
-	*같은 값이 있을시 예외처리
-
-	삭제 함수 호출(todoORnumber, children) / foreach 사용가능
-	정상 종료시 return true;
-	문자열 길이 기준 소팅
-
- */
  var code = todoORnumber.charCodeAt();
  //기존 : ADD actiontype 확인후 예외처리를 위한 분기문 진행
  //      (이미 하였음, chkInputList)예외처리 항목을 분기문이 아닌 함수로 처리
@@ -243,12 +255,7 @@ function doSomething(actionType, todoORnumber)  {
  	doAddList(todoORnumber);	
  }
  else if(actionType === "remove" && code >= 48 && code <= 57){
- 	if(chkRemoveValue(todoORnumber)){
- 		deleteRemoveList(todoORnumber);
- 	}
- 	else{
- 		changeRemovebox()
- 	}
+ 	doRemoveList(todoORnumber);
  }
  else{
  	return false;
